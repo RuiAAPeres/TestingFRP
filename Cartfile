@@ -1,0 +1,3 @@
+github "ReactiveCocoa/ReactiveSwift" "1.1.1"
+github "ReactiveX/RxSwift" "3.4.0"
+github "ReactiveKit/ReactiveKit" "v3.5.3"
