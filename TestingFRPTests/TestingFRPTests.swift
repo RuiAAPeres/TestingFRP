@@ -10,39 +10,45 @@ class TestingFRPTests: XCTestCase {
     func test_measure_ReactiveSwift_1() {
         measure {
             var counter : Int = 0
-            let (signal, observer) = ReactiveSwift.Signal<Int, NoError>.pipe()
 
-            signal.observeValues { counter += $0 }
-
-            for i in 1..<100_000 {
-                observer.send(value: i)
+            let producer = SignalProducer<Int, NoError> { o, d in
+                for i in 1..<100_000 {
+                    o.send(value: i)
+                }
             }
+
+            producer.startWithValues { counter += $0 }
         }
     }
 
     func test_measure_RxSwift_1() {
         measure {
             var counter : Int = 0
-            let variable = Variable(0)
 
-            let _ = variable.asObservable().subscribe(onNext: { counter += $0 })
+            let observable = RxSwift.Observable<Int>.create { o in
+                for i in 1..<100_000 {
+                    o.onNext(i)
+                }
 
-            for i in 1..<100_000 {
-                variable.value = i
+                return Disposables.create()
             }
+
+            _ = observable.subscribe(onNext: { counter += $0 })
         }
     }
 
     func test_measure_ReactiveKit_1() {
         measure {
             var counter : Int = 0
-            let property = ReactiveKit.Property.init(0)
+            let signal = ReactiveKit.Signal<Int, NoError> { o in
+                for i in 1..<100_000 {
+                    o.next(i)
+                }
 
-            _ = property.observeNext { counter += $0 }
-
-            for i in 1..<100_000 {
-                property.value = i
+                return NonDisposable.instance
             }
+
+            _ = signal.observeNext(with: { counter += $0 })
         }
     }
 
