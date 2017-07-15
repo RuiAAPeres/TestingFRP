@@ -1,4 +1,4 @@
-github "ReactiveCocoa/ReactiveSwift" "1.1.1"
+github "ReactiveCocoa/ReactiveSwift" "2.0.0-rc.3"
 github "ReactiveKit/ReactiveKit" "v3.5.3"
 github "ReactiveX/RxSwift" "3.4.0"
-github "antitypical/Result" "3.2.1"
+github "antitypical/Result" "3.2.3"

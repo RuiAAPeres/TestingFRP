@@ -57,14 +57,14 @@ class TestingFRPTests: XCTestCase {
     func test_measure_ReactiveSwift_2() {
         measure {
             var counter : Int = 0
-            let (signal, observer) = ReactiveSwift.Signal<Int, NoError>.pipe()
+            let property = ReactiveSwift.MutableProperty<Int>(0)
 
             for _ in 1..<100 {
-                signal.observeValues { counter += $0 }
+                property.producer.startWithValues { counter += $0 }
             }
 
             for i in 1..<100_000 {
-                observer.send(value: i)
+                property.value = i
             }
         }
     }
@@ -117,7 +117,7 @@ class TestingFRPTests: XCTestCase {
 
     func test_measure_RxSwift_3() {
         measure {
-            let variable = Variable(0)
+            let variable = RxSwift.PublishSubject<Int>()
             let o = variable.asObservable()
 
             for _ in 1..<100 {
@@ -125,7 +125,7 @@ class TestingFRPTests: XCTestCase {
             }
             
             for i in 1..<100_000 {
-                variable.value = i
+                variable.onNext(i)
             }
         }
     }
@@ -153,8 +153,8 @@ class TestingFRPTests: XCTestCase {
 
     func test_measure_RxSwift_4() {
         measure {
-            let v1 = Variable(0)
-            let v2 = Variable(0)
+            let v1 = RxSwift.PublishSubject<Int>()
+            let v2 = RxSwift.PublishSubject<Int>()
 
             let o1 = v1.asObservable()
             let o2 = v2.asObservable()
@@ -165,8 +165,8 @@ class TestingFRPTests: XCTestCase {
             }
 
             for i in 1..<1_000 {
-                v1.value = i
-                v2.value = i
+                v1.onNext(i)
+                v2.onNext(i)
             }
         }
     }
