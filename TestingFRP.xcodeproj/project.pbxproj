@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A99B0EF1F1A0B7F002299DC /* CwlSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A99B0ED1F1A0B7F002299DC /* CwlSignal.framework */; };
+		9A99B0F01F1A0B7F002299DC /* CwlUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A99B0EE1F1A0B7F002299DC /* CwlUtils.framework */; };
 		B23DE9A51EB3D985005C13E2 /* TestingFRP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23DE99B1EB3D985005C13E2 /* TestingFRP.framework */; };
 		B23DE9AA1EB3D985005C13E2 /* TestingFRPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DE9A91EB3D985005C13E2 /* TestingFRPTests.swift */; };
 		B23DE9AC1EB3D985005C13E2 /* TestingFRP.h in Headers */ = {isa = PBXBuildFile; fileRef = B23DE99E1EB3D985005C13E2 /* TestingFRP.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A99B0ED1F1A0B7F002299DC /* CwlSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwlSignal.framework; path = Carthage/Build/iOS/CwlSignal.framework; sourceTree = "<group>"; };
+		9A99B0EE1F1A0B7F002299DC /* CwlUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CwlUtils.framework; path = Carthage/Build/iOS/CwlUtils.framework; sourceTree = "<group>"; };
 		B23DE99B1EB3D985005C13E2 /* TestingFRP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestingFRP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23DE99E1EB3D985005C13E2 /* TestingFRP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingFRP.h; sourceTree = "<group>"; };
 		B23DE99F1EB3D985005C13E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 				B23DE9B91EB3DBEB005C13E2 /* ReactiveSwift.framework in Frameworks */,
 				B23DE9BA1EB3DBEB005C13E2 /* Result.framework in Frameworks */,
 				B23DE9BB1EB3DBEB005C13E2 /* RxSwift.framework in Frameworks */,
+				9A99B0EF1F1A0B7F002299DC /* CwlSignal.framework in Frameworks */,
+				9A99B0F01F1A0B7F002299DC /* CwlUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,8 @@
 		B23DE9B51EB3DBEA005C13E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A99B0ED1F1A0B7F002299DC /* CwlSignal.framework */,
+				9A99B0EE1F1A0B7F002299DC /* CwlUtils.framework */,
 				B2DCA7291EB4C78F00DA863B /* ReactiveKit.framework */,
 				B23DE9B61EB3DBEB005C13E2 /* ReactiveSwift.framework */,
 				B23DE9B71EB3DBEB005C13E2 /* Result.framework */,
